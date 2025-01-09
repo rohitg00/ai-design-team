@@ -11,6 +11,8 @@ import requests
 import plotly.express as px
 import pandas as pd
 from io import BytesIO
+from streamlit.web.server.server import Server
+import streamlit.components.v1 as components
 
 # Get the absolute path to the icon
 icon_path = os.path.join(os.path.dirname(__file__), "assets", "generated-icon.png")
@@ -220,6 +222,23 @@ def display_image_preview(files, title: str):
             except Exception as e:
                 st.error(f"Error processing image {file.name}: {str(e)}")
                 continue
+
+def add_health_check():
+    """Add a health check endpoint for the container"""
+    try:
+        if not hasattr(st, '_server'):
+            return
+
+        def health_check():
+            return {"status": "OK"}
+
+        # Add health check route if possible
+        if hasattr(st, '_server') and hasattr(st._server, 'add_route'):
+            st._server.add_route("/health", health_check, methods=["GET"])
+    except Exception as e:
+        # Log error but don't crash
+        print(f"Health check setup failed: {str(e)}")
+        pass
 
 # Main application layout
 st.title("🎨 AI Design Team")
@@ -435,3 +454,5 @@ st.markdown("""
     Powered by  <a href='https://aistudio.google.com/' style='color: #00f2ff;'><span style="color: #00f2ff;">Gemini Flash 2.0 Exp</span></a> | Built with ❤️ by <a href='https://github.com/rohitg00' style='color: #00f2ff;'><span style="color: #00f2ff;">Rohit Ghumare</span></a>
 </div>
 """, unsafe_allow_html=True)
+
+add_health_check()

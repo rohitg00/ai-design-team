@@ -1,13 +1,15 @@
 [server]
 headless = true
 address = "0.0.0.0"
-enableCORS = true
+port = 5001
+enableWebsocketCompression = true
 enableXsrfProtection = false
+enableCORS = false
 maxUploadSize = 5
 
 [browser]
-serverAddress = "ai-design-team-lkgws.kinsta.app"
-serverPort = 443
+serverAddress = "0.0.0.0"
+serverPort = 5001
 gatherUsageStats = false
 
 [theme]
