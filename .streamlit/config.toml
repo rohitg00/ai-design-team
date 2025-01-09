@@ -3,6 +3,12 @@ headless = true
 address = "0.0.0.0"
 enableCORS = true
 enableXsrfProtection = false
+maxUploadSize = 5
+
+[browser]
+serverAddress = "ai-design-team-lkgws.kinsta.app"
+serverPort = 443
+gatherUsageStats = false
 
 [theme]
 primaryColor = "#00f2ff"
