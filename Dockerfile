@@ -21,4 +21,4 @@ ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 ENV STREAMLIT_SERVER_MAX_UPLOAD_SIZE=5
 
 # Command to run the application
-ENTRYPOINT ["streamlit", "run", "--server.address=0.0.0.0", "--server.port=80", "app.py"]
+# ENTRYPOINT ["streamlit", "run", "--server.address=0.0.0.0", "--server.port=80", "app.py"]
