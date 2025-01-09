@@ -2,6 +2,8 @@
 headless = true
 address = "0.0.0.0"
 port = 5001
+enableWebsocketCompression = true
+enableXsrfProtection = false
 
 [theme]
 primaryColor = "#00f2ff"
