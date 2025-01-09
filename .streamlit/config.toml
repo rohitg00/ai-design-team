@@ -1,15 +1,11 @@
 [server]
 headless = true
 address = "0.0.0.0"
-port = 5001
-enableWebsocketCompression = true
+enableCORS = true
 enableXsrfProtection = false
-enableCORS = false
 maxUploadSize = 5
 
 [browser]
-serverAddress = "0.0.0.0"
-serverPort = 5001
 gatherUsageStats = false
 
 [theme]
