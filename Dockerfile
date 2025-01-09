@@ -14,13 +14,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Set environment variables for Streamlit
-ENV STREAMLIT_SERVER_PORT=5001
+ENV STREAMLIT_SERVER_PORT=80
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 ENV STREAMLIT_SERVER_HEADLESS=true
 ENV STREAMLIT_SERVER_ENABLE_WEBSOCKET_COMPRESSION=true
+ENV STREAMLIT_SERVER_RUN_ON_SAVE=false
+ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
-# Expose port 5001
-EXPOSE 5001
+# Expose port 80
+EXPOSE 80
 
 # Command to run the application
 CMD ["streamlit", "run", "app.py"]
